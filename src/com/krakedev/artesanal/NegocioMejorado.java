@@ -88,8 +88,22 @@ public class NegocioMejorado {
 		Cliente clienteR = buscarClientePorCodigo(codigoC);
 		
 		double valorPagar = maquinaR.servirCerveza(cantidad);
+		registrarConsumo(codigoC, valorPagar);
 		
-		
+	}
+	
+	public void registrarConsumo(int codigo, double valor) {
+		Cliente cliente = buscarClientePorCodigo(codigo);
+		double totalConsumido = cliente.getTotalConsumido()+valor;
+		cliente.setTotalConsumido(totalConsumido);
+	}
+	
+	public double consultarValorVendido() {
+		double acumuladoConsumos=0;
+		for(int i=0;i<clientes.size();i++) {
+			acumuladoConsumos += clientes.get(i).getTotalConsumido();
+		}
+		return acumuladoConsumos;
 	}
 	
 }
