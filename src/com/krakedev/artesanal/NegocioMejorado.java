@@ -49,9 +49,9 @@ public class NegocioMejorado {
 	
 	
 	public Maquina recuperarMaquina(String codigoM) {
-		for(int i=0;i<maquinas.size();i++) {
-			if(maquinas.get(i).getCodigo().equals(codigoM)) {
-				return maquinas.get(i);
+		for(Maquina maquina : maquinas) {
+			if(maquina.getCodigo().equals(codigoM)) {
+				return maquina;
 			}
 		}
 		return null;
@@ -86,10 +86,11 @@ public class NegocioMejorado {
 	public void consumirCerveza(int codigoC, String codigoM, double cantidad) {
 		Maquina maquinaR = recuperarMaquina(codigoM);
 		Cliente clienteR = buscarClientePorCodigo(codigoC);
-		
-		double valorPagar = maquinaR.servirCerveza(cantidad);
-		registrarConsumo(codigoC, valorPagar);
-		
+
+		if(maquinaR != null && clienteR != null) {
+			double valorPagar = maquinaR.servirCerveza(cantidad);
+			registrarConsumo(codigoC, valorPagar);
+		}
 	}
 	
 	public void registrarConsumo(int codigo, double valor) {
