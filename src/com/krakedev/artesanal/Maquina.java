@@ -83,7 +83,7 @@ public class Maquina {
 				+ "\nCódigo: " + codigo;
 		System.out.println(mensaje);
 
-	}
+	} 
 	
 	public void llenarMaquina() {
 		this.cantidadActual = this.capacidadMaxima -100;

@@ -12,6 +12,18 @@ public class Cliente {
 		this.nombre = nombre;
 		this.cedula = cedula;
 	}
+	
+	
+	
+	public Cliente(String nombre, String cedula, int codigo) {
+		super();
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.codigo = codigo;
+	}
+
+
+
 	public String getNombre() {
 		return nombre;
 	}
